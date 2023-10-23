@@ -1,24 +1,5 @@
 [
   {
-    "inputs": [
-      {
-        "internalType": "string",
-        "name": "message",
-        "type": "string"
-      }
-    ],
-    "name": "setGreeting",
-    "outputs": [
-      {
-        "internalType": "string",
-        "name": "greetingMsg",
-        "type": "string"
-      }
-    ],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "getGreeting",
     "outputs": [
@@ -42,6 +23,25 @@
       }
     ],
     "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "string",
+        "name": "message",
+        "type": "string"
+      }
+    ],
+    "name": "setGreeting",
+    "outputs": [
+      {
+        "internalType": "string",
+        "name": "greetingMsg",
+        "type": "string"
+      }
+    ],
+    "stateMutability": "nonpayable",
     "type": "function"
   }
 ]

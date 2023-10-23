@@ -8,25 +8,30 @@ const account = "0xF959343f3dA502C04423C028816b540cE6af368D";
 // 잔액 조회
 const getBalance = async () => {
   const balance = await web3.eth.getBalance(account);
-  const convert = await web3.utils.fromWei(balance, "ether");
-  console.log(convert);
+  console.log(await web3.utils.fromWei(balance, "ether"));
 };
 
 // 특정 트랜잭션 조회
-const getTx = async () => {
-  const tx =
-    "0x1bacd17701e35e1a4f5a0fd3581c4b498650088f0434ce48258c146d2712966f";
-  const result = await web3.eth.getTransaction(tx);
-
-  console.log(result);
+const getTx = async (hash) => {
+  const result = await web3.eth.getTransaction(hash);
+  return result;
 };
 
 // 특정 블록 조회
 const getBlock = async () => {
-  const blockNum = 41374286;
-  const result = await web3.eth.getBlock(blockNum);
+  const hash =
+    "0x97594192adcb59266021460a62e98d622a485ee900974aff3ef3f402ba3cb347";
+  const result = [];
+  const txs = (await web3.eth.getBlock(hash)).transactions;
 
-  console.log(result);
+  for (let i = 0; i < txs.length; i++) {
+    let tx = await getTx(txs[i]);
+    result.push(tx);
+  }
+
+  result.map((tx, i) => {
+    console.log(`${i}번째 트랜잭션 : `, tx);
+  });
 };
 
 getBlock();
