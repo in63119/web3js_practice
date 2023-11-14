@@ -16,5 +16,8 @@ const getHelloWorld = async () => {};
 
 const setHelloWorld = async () => {};
 
+const mintNFT = async () => {};
+
 getHelloWorld();
 // setHelloWorld();
+// mintNFT();
